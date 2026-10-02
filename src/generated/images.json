@@ -1,0 +1,130 @@
+{
+  "office-reception-corridor": {
+    "width": 1600,
+    "height": 2133,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#080808"
+  },
+  "office-meeting-room": {
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#e8e8e8"
+  },
+  "office-workspace": {
+    "width": 2000,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600,
+      2000
+    ],
+    "color": "#787868"
+  },
+  "office-brand-wall": {
+    "width": 1200,
+    "height": 900,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "color": "#080808"
+  },
+  "leadership-madhu-krishna": {
+    "width": 720,
+    "height": 900,
+    "widths": [
+      320,
+      480,
+      720
+    ],
+    "color": "#783848"
+  },
+  "product-selfmate-mark": {
+    "width": 240,
+    "height": 240,
+    "widths": [
+      240
+    ],
+    "color": "#f8f8f8"
+  },
+  "product-fearlink-mark": {
+    "width": 240,
+    "height": 240,
+    "widths": [
+      240
+    ],
+    "color": "#f8f8f8"
+  },
+  "product-miyraa-mark": {
+    "width": 240,
+    "height": 240,
+    "widths": [
+      240
+    ],
+    "color": "#f8f8f8"
+  },
+  "product-apexportai-mark": {
+    "width": 240,
+    "height": 240,
+    "widths": [
+      240
+    ],
+    "color": "#f8f8f8"
+  },
+  "krislynx-workspace": {
+    "width": 2000,
+    "height": 1333,
+    "widths": [
+      640,
+      960,
+      1280,
+      1600,
+      2000
+    ],
+    "color": "#b8b8a8"
+  },
+  "krislynx-workspace-mobile": {
+    "width": 1200,
+    "height": 1500,
+    "widths": [
+      480,
+      800,
+      1200
+    ],
+    "color": "#787868"
+  },
+  "krislynx-infrastructure-server-room": {
+    "width": 1600,
+    "height": 900,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#080808"
+  },
+  "krislynx-infrastructure-server-room-mobile": {
+    "width": 720,
+    "height": 900,
+    "widths": [
+      480,
+      720
+    ],
+    "color": "#080818"
+  }
+}

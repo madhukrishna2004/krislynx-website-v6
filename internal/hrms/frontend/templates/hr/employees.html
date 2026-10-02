@@ -1,0 +1,25 @@
+<body class="bg-black text-blue-400 p-8">
+<h1 class="text-3xl font-bold mb-6">Employees</h1>
+
+<form method="POST" action="/hr/employees/add"
+ class="bg-blue-900/20 p-6 rounded-xl mb-8 grid grid-cols-4 gap-4">
+  <input name="name" placeholder="Name" class="bg-black border p-2 rounded">
+  <input name="email" placeholder="Email" class="bg-black border p-2 rounded">
+  <input name="employee_id" placeholder="Emp ID" class="bg-black border p-2 rounded">
+  <input name="department" placeholder="Department" class="bg-black border p-2 rounded">
+  <button class="col-span-4 bg-blue-400 text-black py-2 rounded">Add Employee</button>
+</form>
+
+<table class="w-full border border-blue-700">
+<tr class="bg-blue-900">
+  <th>Name</th><th>Email</th><th>Dept</th>
+</tr>
+{% for emp in employees %}
+<tr class="border-t">
+  <td>{{ emp.to_dict().name }}</td>
+  <td>{{ emp.to_dict().email }}</td>
+  <td>{{ emp.to_dict().department }}</td>
+</tr>
+{% endfor %}
+</table>
+</body>

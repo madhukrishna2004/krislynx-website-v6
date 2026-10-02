@@ -1,0 +1,279 @@
+/* ==========================================================================
+   KrisLynx design system — tokens & base
+   Palette drawn from the K mark: deep signal blue → sky. Ink navy, not black.
+   Two families: Saira (display, echoes the wordmark's rounded technical
+   letterforms) and IBM Plex Sans (body; engineering-grade legibility).
+   ========================================================================== */
+
+:root {
+  /* ======================================================================
+     KrisLynx design tokens — "black glass + pastel light".
+     Surfaces are near-black; pastels are LIGHT (used behind/around objects,
+     never as paint). Glass is a hierarchy tool, not a default.
+     ====================================================================== */
+  color-scheme: dark;
+
+  /* surfaces */
+  --bg: #0a0d0c;           /* INK */
+  --bg-2: #121614;         /* DEEP GRAPHITE */
+  --surface: #1b211e;      /* GRAPHITE */
+  --surface-2: #222924;
+  --surface-3: #2a312d;      /* SOFT GRAPHITE */
+  --line: rgba(245, 247, 245, 0.1);
+  --line-2: rgba(245, 247, 245, 0.18);
+
+  /* text on dark */
+  --text-hi: #f5f7f5;      /* PRIMARY LIGHT */
+  --text-mid: #cdd5d0;
+  --muted: #aab5ae;        /* SECONDARY LIGHT */
+
+  /* technology accents (on dark) */
+  --blue: #dceeff;         /* ICE BLUE — data / infrastructure */
+  --cyan: #b9f2d0;         /* KRIS MINT — primary accent on dark */
+  --violet: #e8e1ff;       /* SOFT LAVENDER — intelligence */
+  --mint: #b9f2d0;         /* KRIS MINT — products / operations */
+  --peach: #eadcc8;        /* WARM SAND — people / environment */
+  --ice: #dceeff;           /* ICE BLUE */
+  --lilac: #e8e1ff;         /* SOFT LAVENDER */
+
+  /* ROOMS — pale environments between the dark technical spaces */
+  --room-warm: #f4f1ea;     /* WARM PAPER — company / human */
+  --room-ice: #eaf3fd;      /* ice tint — data / infrastructure */
+  --room-mint: #e4f6eb;     /* mint tint — products / operations */
+  --room-lilac: #f0ecfd;    /* lavender tint — intelligence */
+  /* accent inks for text on pale rooms (AA on every room) */
+  --ink-cyan: #2a5a86;
+  --ink-mint: #1e6b45;
+  --ink-violet: #5b4bb8;
+
+  /* glass */
+  --glass: rgba(255, 255, 255, 0.055);
+  --glass-strong: rgba(18, 22, 20, 0.84);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hi: rgba(214, 228, 255, 0.28);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --blur: 18px;
+
+  /* light editorial sections */
+  --paper: #f1f5f4;      /* COOL PAPER */
+  --white: #faf9f6;      /* SOFT WHITE */
+  --rule: #dcd8ce;
+  --rule-strong: #c2beb3;
+  --text: #101411;      /* PRIMARY DARK */
+  --text-2: #56615b;    /* SECONDARY DARK */
+  --text-3: #56615b;
+
+  /* legacy names (components still reference these) mapped onto the new palette */
+  --ink-950: var(--bg);
+  --ink-900: var(--bg-2);
+  --ink-800: var(--surface-2);
+  --ink-700: var(--surface-3);
+  --ink-600: #2a312d;
+  --text-inv: var(--text-hi);
+  --text-inv-2: var(--text-mid);
+  --signal: #101411;
+  --signal-600: #2a312d;
+  --signal-50: #eceee9;
+  --sky: var(--cyan);
+  --sky-200: #cdeefa;
+  --live: #0b7a4b;
+  --live-bg: #dff5ea;
+  --dev: #8a5300;
+  --dev-bg: #fff1d6;
+  --research: #5b3fc4;
+  --research-bg: #eeeafe;
+  --concept: #45536b;
+  --concept-bg: #e9edf3;
+  --danger: #b42318;
+  --danger-bg: #fdecea;
+  --focus: #1e6b45;
+
+  /* type — self-hosted (public/fonts, SIL OFL). Instrument Sans: display + body (weight contrast 400/700).
+     Geist Mono: technical labels only. */
+  --font-display: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", "Cascadia Mono", Menlo, Consolas, monospace;
+  /* ── TYPE ROLES (V3.3): every font-size in the site maps to one of these ── */
+  --type-micro: 0.6875rem;                                   /* 11px  mono metadata, technical labels */
+  --type-label: 0.8125rem;                                   /* 13px  UI controls: nodes, chips, tabs, steps */
+  --type-small: 0.9375rem;                                   /* 15px  secondary text, notes, captions */
+  --type-body: 1.0625rem;                                    /* 17px  body */
+  --type-body-large: 1.1875rem;                              /* 19px  ledes, small headings */
+  --type-subhead: clamp(1.25rem, 1.12rem + 0.55vw, 1.5rem);  /* 20→24 panel titles, taglines */
+  --type-title: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);     /* 24→34 card/document titles */
+  --type-section: clamp(2.05rem, 1.25rem + 2.3vw, 3.3rem);   /* 33→53 section statements */
+  --type-display: clamp(2.3rem, 1.3rem + 3vw, 4.25rem);      /* 37→68 inner-page H1 only */
+  --type-hero: clamp(3rem, 1.4rem + 5.4vw, 6.6rem);
+  --type-hero-sm: clamp(2.5rem, 10vw, 3.8rem);
+  --type-hero-md: clamp(2.5rem, 5.5vw, 3.5rem);          /* 48→~100 homepage hero only */
+  --type-product: clamp(3.2rem, 1.2rem + 8vw, 9rem);         /* 51→144 EduLynx product identity only */
+  --type-hero-phone: clamp(2.9rem, 1.2rem + 9vw, 3.8rem);    /* hero on phones: ~48→60px */
+  --fs-xs: var(--type-label);
+  --fs-sm: var(--type-small);
+  --fs-base: var(--type-body);
+  --fs-md: var(--type-body-large);
+  --fs-lg: var(--type-subhead);
+  --fs-xl: var(--type-title);
+  --fs-2xl: var(--type-section);
+  --fs-3xl: var(--type-hero);
+  --fs-label: var(--type-micro);
+  --lh-tight: 0.94;
+  --lh-snug: 1.2;
+  --lh-body: 1.6;
+
+  /* space (4px base) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --section-y: clamp(3.5rem, 2.4rem + 4.5vw, 7rem);
+
+  /* shape — restrained radii */
+  /* ── V3 TOKENS: radius (square for architecture, small/medium/large elsewhere) ── */
+  --r-square: 2px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  /* borders communicate structure, state, grouping, interaction */
+  --border-quiet: 1px solid rgba(16, 20, 17, 0.1);
+  --border-structure: 1px solid rgba(16, 20, 17, 0.18);
+  --border-dark: 1px solid rgba(245, 247, 245, 0.12);
+  /* shadows: ambient, directional, subtle elevation (dark surfaces use border + contrast instead) */
+  --shadow-ambient: 0 1px 2px rgba(16, 20, 17, 0.06);
+  --shadow-directional: 0 18px 36px -24px rgba(16, 20, 17, 0.35);
+  --shadow-elevated: 0 30px 60px -36px rgba(10, 13, 12, 0.55);
+  /* layers */
+  --z-rail: 20; --z-header: 50; --z-assistant: 60; --z-dialog: 70;
+  /* content widths (breakpoints are documented in V3-DESIGN-SYSTEM.md: 30 · 48 · 64 · 72 · 90rem) */
+  --measure: 42rem;
+  --r-pill: 999px;
+  --radius: var(--r-md);
+  --stroke: 1px;
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 20px 50px -24px rgba(0, 0, 0, 0.6);
+  --shadow-float: 0 24px 60px -18px rgba(0, 0, 0, 0.7);
+  --shadow: var(--shadow-panel);
+
+  /* layout */
+  --container: 78rem;
+  --container-narrow: 46rem;
+  --gutter: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+  --header-h: 4.25rem;
+
+  /* motion — spring-like easing, never bouncy */
+  --ease: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.26, 0.64, 1);
+  --dur-fast: 150ms;
+  --dur: 260ms;
+  --dur-slow: 1400ms;
+}
+
+/* self-hosted fonts (subset to the characters the site uses; see docs/VISUAL-TRANSFORMATION.md) */
+@font-face { font-family: "Instrument Sans"; src: url("/fonts/instrument-sans-400-v1.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Instrument Sans"; src: url("/fonts/instrument-sans-700-v1.woff2") format("woff2"); font-weight: 600 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Geist Mono"; src: url("/fonts/geist-mono-400-v1.woff2") format("woff2"); font-weight: 400 500; font-style: normal; font-display: swap; }
+
+/* ------------------------------------------------------------------ reset */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-top: calc(var(--header-h) + 1rem); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  color: var(--text-hi);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+input, button, select, textarea { font: inherit; color: inherit; }
+:where(h1, h2, h3, h4, p, figure, blockquote, dl, dd) { margin: 0; }
+:where(ul[class], ol[class], nav ul, nav ol) { list-style: none; margin: 0; padding: 0; }
+a { color: var(--signal); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+address { font-style: normal; }
+button { cursor: pointer; }
+[hidden] { display: none !important; }
+main:focus { outline: none; }
+
+/* ------------------------------------------------------------------ focus */
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+.section--ink :focus-visible, .section--ink-deep :focus-visible, .site-header :focus-visible,
+.site-footer :focus-visible, .page-hero--ink :focus-visible, .cta-band :focus-visible, .mobile-menu :focus-visible {
+  outline-color: var(--sky);
+}
+
+/* ----------------------------------------------------------- typography */
+/* Display type: tight tracking at large sizes, balanced wrapping; words never split mid-word. */
+.display-1, .display-2, .display-3 { font-family: var(--font-display); font-weight: 600; text-wrap: balance; }
+.display-1 { font-size: var(--fs-3xl); line-height: var(--lh-tight); letter-spacing: -0.045em; font-weight: 700; }
+.display-2 { font-size: var(--fs-2xl); line-height: 0.98; letter-spacing: -0.038em; font-weight: 700; }
+.display-3 { font-size: var(--fs-xl); line-height: 1.08; letter-spacing: -0.028em; font-weight: 700; }
+.display-1, .display-2, .display-3, h3 { overflow-wrap: break-word; }
+h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--fs-lg); line-height: var(--lh-snug); letter-spacing: -0.022em; }
+h4 { font-size: var(--fs-md); font-weight: 600; line-height: var(--lh-snug); }
+.lede { font-size: var(--fs-md); line-height: 1.55; color: var(--text-2); max-width: 36rem; }
+.lede p + p { margin-top: var(--s-4); }
+/* Technical label: the site's engineering voice — monospace, uppercase, tracked, small. Kickers share it. */
+.tlabel, .kicker {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5em; margin: 0 0 var(--s-4);
+  font-family: var(--font-mono); font-size: var(--fs-label); font-weight: 500; line-height: 1.4;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3);
+}
+.tlabel__index { color: var(--signal); font-weight: 600; }
+.tlabel__sep { opacity: 0.45; }
+.mono { font-family: var(--font-mono); font-size: 0.9em; letter-spacing: 0.02em; }
+.muted { color: var(--text-2); }
+.small { font-size: var(--fs-sm); }
+p { text-wrap: pretty; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.skip-link {
+  position: absolute; left: var(--s-4); top: -4rem; z-index: 100;
+  background: var(--white); color: var(--ink-900); padding: var(--s-3) var(--s-4);
+  border-radius: var(--r-sm); font-weight: 600; box-shadow: var(--shadow-panel);
+}
+.skip-link:focus { top: var(--s-4); }
+
+/* ---------------------------------------------------------------- layout */
+.container { width: 100%; max-width: calc(var(--container) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.container--narrow { max-width: calc(var(--container-narrow) + 2 * var(--gutter)); }
+
+.section { padding-block: var(--section-y); }
+.section--tight { padding-block: clamp(3rem, 2rem + 3vw, 4.5rem); }
+.section--paper { background: var(--paper); }
+.section--white { background: var(--white); }
+.section--ink { background: var(--ink-900); color: var(--text-inv); }
+.section--ink-deep { background: var(--ink-950); color: var(--text-inv); }
+.section--ink .lede, .section--ink-deep .lede, .section--ink .muted, .section--ink-deep .muted { color: var(--text-inv-2); }
+.section--ink a:not(.btn), .section--ink-deep a:not(.btn) { color: var(--sky); }
+.section--ink .kicker, .section--ink-deep .kicker, .section--ink .tlabel, .section--ink-deep .tlabel, .page-hero--ink .tlabel, .home-hero .tlabel { color: var(--text-inv-2); }
+.section--ink .tlabel__index, .section--ink-deep .tlabel__index, .page-hero--ink .tlabel__index, .home-hero .tlabel__index { color: var(--sky); }
+
+.section-header { display: grid; gap: var(--s-4); margin-bottom: clamp(2rem, 1.5rem + 2vw, 3.5rem); max-width: 48rem; }
+.section-header--split { max-width: none; }
+@media (min-width: 60rem) {
+  .section-header--split { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: var(--s-8); align-items: end; }
+  .section-header--split .section-header__lede { padding-bottom: 0.35rem; }
+}
+
+.stack > * + * { margin-top: var(--s-4); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-6); }
+.grid-2 { display: grid; gap: var(--s-6); }
+@media (min-width: 48rem) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* ---------------------------------------------------------- reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}

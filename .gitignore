@@ -1,0 +1,13 @@
+node_modules/
+dist/
+functions/lib/
+qa/screenshots/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.firebase/
+# never commit credentials
+*service-account*.json
+firebase-admin*.json

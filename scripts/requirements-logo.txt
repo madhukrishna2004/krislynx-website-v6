@@ -1,0 +1,4 @@
+# Only for scripts/trace_logo.py (re-tracing the logo from PNG). Not needed to build the site.
+opencv-python-headless==4.10.0.84
+numpy>=1.26
+Pillow>=10.0

@@ -1,0 +1,39 @@
+{
+  "name": "krislynx-corporate-website",
+  "version": "6.3.0",
+  "private": true,
+  "description": "krislynx.com — corporate website of KrisLynx Technologies Private Limited",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsx scripts/build.tsx",
+    "images": "tsx scripts/images.ts",
+    "brand": "tsx scripts/brand-assets.ts",
+    "og": "tsx scripts/og.ts",
+    "assets": "npm run images && npm run brand && npm run og",
+    "typecheck": "tsc -p tsconfig.node.json",
+    "lint": "tsx scripts/lint.ts",
+    "test": "npm run build && tsx --test tests/*.test.ts tests/*.test.tsx",
+    "audit:site": "npm run build && tsx scripts/audit.ts",
+    "serve": "tsx scripts/serve.ts",
+    "e2e": "tsx scripts/e2e.ts",
+    "sweep": "tsx scripts/sweep.ts",
+    "screenshots": "tsx scripts/screenshots.ts",
+    "check": "npm run typecheck && npm run lint && npm test",
+    "deploy": "npm run check && firebase deploy --only hosting,functions:website",
+    "audit:release": "tsx scripts/release-audit.ts",
+    "audit:deps": "npm audit --audit-level=high && npm --prefix functions audit --audit-level=high",
+    "test:live-contact": "tsx scripts/live-contact-test.ts",
+    "audit:domain": "tsx scripts/domain-check.ts"
+  },
+  "devDependencies": {
+    "@types/node": "25.6.0",
+    "esbuild": "0.27.7",
+    "playwright": "1.56.0",
+    "sharp": "0.34.5",
+    "tsx": "4.21.0",
+    "typescript": "6.0.3"
+  }
+}

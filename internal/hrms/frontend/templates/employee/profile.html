@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KrisLynx Login</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_KEY",
+      authDomain: "YOUR_DOMAIN",
+      projectId: "YOUR_PROJECT_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const db = getFirestore();
+
+    async function login() {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      const userCred = await signInWithEmailAndPassword(auth, email, password);
+      const uid = userCred.user.uid;
+
+      const snap = await getDoc(doc(db, "users", uid));
+      const role = snap.data().role;
+
+      await fetch("/hrms/session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uid, role })
+      });
+
+      window.location.href = role === "HR" ? "/hr/dashboard" : "/employee/dashboard";
+    }
+  </script>
+</head>
+
+<body class="bg-black h-screen flex items-center justify-center text-blue-400">
+  <div class="bg-blue-900/20 p-8 rounded-xl border border-blue-800 w-96">
+    <h1 class="text-2xl font-bold mb-6 text-center">KrisLynx Portal</h1>
+
+    <input id="email" type="email" placeholder="Email"
+      class="w-full mb-4 p-2 bg-black border border-blue-700 rounded">
+
+    <input id="password" type="password" placeholder="Password"
+      class="w-full mb-6 p-2 bg-black border border-blue-700 rounded">
+
+    <button onclick="login()"
+      class="w-full bg-gradient-to-r from-cyan-300 to-blue-400 text-black py-2 rounded hover:brightness-110 transition">
+      Login
+    </button>
+  </div>
+</body>
+</html>

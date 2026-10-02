@@ -1,0 +1,14 @@
+<body class="bg-black text-blue-400 p-8">
+<h1 class="text-3xl font-bold mb-6">Submit EOD</h1>
+
+<form method="POST" action="/employee/eod/submit"
+ class="bg-blue-900/20 p-6 rounded-xl space-y-4 max-w-xl">
+<textarea name="tasks" placeholder="Tasks completed" class="w-full p-2 bg-black border"></textarea>
+<input name="hours" placeholder="Hours worked" class="w-full p-2 bg-black border">
+<textarea name="blockers" placeholder="Blockers" class="w-full p-2 bg-black border"></textarea>
+<textarea name="tomorrow" placeholder="Tomorrow's plan" class="w-full p-2 bg-black border"></textarea>
+<button class="w-full bg-gradient-to-r from-cyan-300 to-blue-400 text-black py-2 rounded">
+Submit EOD
+</button>
+</form>
+</body>

@@ -1,0 +1,22 @@
+width 1440px · routes: / /products/edulynx-erp /services /company /contact /work /office
+distinct font sizes: 11
+    11px  tlabel__index, mono, hc__frag-pill, tlabel__sep, span, handoff__from, handoff__mid, handoff__to, status …+8
+    13px  hero3__domains, hc__node, hc__frag-sub, ssy__n, ssy__step, orb__node, a, span, edx__inst-note …+14
+    15px  hc__note, ssy__note, orb__wf, span, li, edx__desc, edx__foundation, b, lf__name …+18
+    17px  lede-sm, span, ssy__short, text-link, a, p, orb__see, edx__inst-name, lf__does …+13
+    19px  li, arch3__name, p, section-header__lede, h3, day__name, accordion__title, lede, h2 …+2
+    24px  strong, hc__frag-big, flagship__tag, aip__text, lf__output, eco__name, closing__mail, edx-tagline, modules__heading …+7
+    34px  ssy__name, dd, strong, display-3, h3, eco__core, cf__name
+    53px  display-2, em, steps__n, plan__amount
+    64px  display-1, em
+   118px  hl, em
+   134px  flagship__name
+largest section heading (excl. hero, EduLynx, page H1s): 53px (/ We run what)
+"Where we build" heading: 53px
+uppercase: 17% of 1005 visible text elements
+uppercase sentences (>4 words): 4
+  · hero3__domains: "Software / AI / Products"
+  · mono: "EduLynx ERP · live product"
+  · mono: "EduLynx ERP · illustrative interface"
+  · aip__zone: "AI system · steps 01–06"
+families: Geist Mono, Bricolage Grotesque, Instrument Sans · weights: 400, 500, 600, 700
